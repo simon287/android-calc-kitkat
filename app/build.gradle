@@ -1,0 +1,41 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 29  // Using Android 10 as compile SDK for better compatibility
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.calculator"
+        minSdkVersion 19  // Android 4.4.4 (KitKat)
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        // Enabling vector drawables for pre-Lollipop devices
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // Support Libraries for older Android versions
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    
+    // Optional: Add GridLayout support for older versions
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+}
